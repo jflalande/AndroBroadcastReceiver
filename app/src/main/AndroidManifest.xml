@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="andro.jf.ABR"
+    android:versionCode="1"
+    android:versionName="1.0" >
+  
+  <!-- Declaration de la permission speciale -->
+  <permission
+        android:name="andro.jf.mypermission"
+        android:label="my_permission"
+        android:protectionLevel="dangerous" >
+  </permission>
+  
+  <!-- J'utilise moi-même cette permission -->
+  <uses-permission android:name="andro.jf.mypermission" />
+  
+  <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="17" />
+  
+  <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+    <activity
+            android:name="andro.jf.ABR.MainActivity"
+            android:label="@string/app_name" >
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        
+        <category android:name="android.intent.category.LAUNCHER" />
+      </intent-filter>
+    </activity>
+    
+    <receiver
+            android:name="MyBroadcastReceiver"
+            android:exported="false" >
+      <intent-filter>
+        <action android:name="andro.jf.broadcast" />
+        
+        <category android:name="android.intent.category.DEFAULT" />
+      </intent-filter>
+    </receiver>
+  </application>
+  
+</manifest>
